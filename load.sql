@@ -3,6 +3,9 @@ DROP TABLE product;
 DROP TABLE supplier;  
 DROP TABLE employee; 
 DROP TABLE customer; 
+DROP TABLE sale; 
+DROP TABLE sale_item; 
+DROP TABLE invoice; 
 
 
 
@@ -67,4 +70,35 @@ CREATE TABLE customer (
 	credit_limit 			NUMBER(6,2), 
 	customer_type 			varchar2(30)	NOT NULL
 ); 
+
+CREATE TABLE sale (
+	saleID 					INT 			NOT NULL PRIMARY KEY UNIQUE, 
+	customerID 				INT 			NOT NULL, 
+	employeeID				INT 			NOT NULL, 
+	invoiceID				INT 			NOT NULL, 
+	#had to change name as date cant be a variable name
+	sale_date				DATE 			NOT NULL,  
+	totalPrice 				NUMBER(6,2) 	NOT NULL,#changed to number to work with decimals
+	discount 				NUMBER(2)		NOT NULL #might be (3)?? or an int?? unsure
+); 
+
+CREATE TABLE sale_item (
+	productID 				INT 			NOT NULL, 
+	saleID					INT 			NOT NULL, 
+	quantity 				INT 			NOT NULL 
+);
+
+CREATE TABLE invoice (
+	invoiceID 				INT 			NOT NULL PRIMARY KEY UNIQUE,
+	customerID				INT 			NOT NULL, 
+	saleID					INT 			NOT NULL, 
+	date_issued 			DATE 			NOT NULL, 
+	payment_by_date			DATE 			NOT NULL, 
+	paid 					BOOLEAN			NOT NULL
+); 
+
+
+
+
+
 
