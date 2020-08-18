@@ -1,6 +1,6 @@
 DROP TABLE product; 
-DROP TABLE employee; 
 DROP TABLE customer; 
+DROP TABLE employee;  
 DROP TABLE supplier;  
 
 CREATE TABLE supplier (
