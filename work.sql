@@ -1,5 +1,5 @@
 DROP TABLE asgn_product; 
-DROP TABLE asgn_employee; 
+DROP TABLE asgn_employee;  
 DROP TABLE asgn_customer; 
 DROP TABLE asgn_supplier;  
 
