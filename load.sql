@@ -1,11 +1,24 @@
 
-DROP TABLE product;
 
-#DROP TABLE supplier;  
-#DROP TABLE employee; 
-#DROP TABLE customer; 
-#DROP TABLE sale; 
-#DROP TABLE invoice; 
+DROP TABLE product;
+DROP TABLE supplier;  
+DROP TABLE employee; 
+DROP TABLE customer; 
+DROP TABLE sale; 
+DROP TABLE invoice; 
+
+
+CREATE TABLE supplier (
+	supplierID 				INT 			NOT NULL PRIMARY KEY, 
+	name 					varchar2(30)	NOT NULL,
+	phone 					varchar2(10)	NOT NULL, 
+	street_number			NUMBER(3)			NOT NULL, 
+	street_name 			varchar2(20)	NOT NULL, 
+	city					varchar2(20)	NOT NULL,
+	region					varchar2(15)	NOT NULL,
+	postcode				NUMBER(4),
+	preferred_payment		varchar2(15)	NOT NULL 
+); 
 
 CREATE TABLE product (
 	product_name  			varchar2(20)	NOT NULL, 
@@ -19,18 +32,7 @@ CREATE TABLE product (
 	retail_price 			INT 			NOT NULL, 
 	wholesale_price 		INT 			NOT NULL  
 ); 
-/*
-CREATE TABLE supplier (
-	supplierID 				INT 			NOT NULL PRIMARY KEY, 
-	name 					varchar2(30)	NOT NULL,
-	phone 					varchar2(10)	NOT NULL, 
-	street_number			INT(3)			NOT NULL, 
-	street_name 			varchar2(20)	NOT NULL, 
-	city					varchar2(20)	NOT NULL,
-	region					varchar2(15)	NOT NULL,
-	postcode				INT(4),
-	preferred_payment		varchar2(15)	NOT NULL 
-); 
+
 
 CREATE TABLE employee (
 	employeeID				INT 			NOT NULL PRIMARY KEY, 
@@ -100,5 +102,5 @@ CREATE TABLE invoice (
 	date_issued 			DATE 			NOT NULL, 
 	payment_by_date			DATE 			NOT NULL, 
 	paid 					BOOLEAN			NOT NULL
-); 
-*/ 
+);
+
