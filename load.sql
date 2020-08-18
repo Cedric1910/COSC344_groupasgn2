@@ -1,10 +1,11 @@
 
 DROP TABLE product;
-DROP TABLE supplier;  
-DROP TABLE employee; 
-DROP TABLE customer; 
-DROP TABLE sale; 
-DROP TABLE invoice; 
+
+#DROP TABLE supplier;  
+#DROP TABLE employee; 
+#DROP TABLE customer; 
+#DROP TABLE sale; 
+#DROP TABLE invoice; 
 
 CREATE TABLE product (
 	product_name  			varchar2(20)	NOT NULL, 
