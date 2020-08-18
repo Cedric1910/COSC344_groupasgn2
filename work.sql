@@ -1,7 +1,7 @@
-DROP TABLE product; 
-DROP TABLE employee; 
-DROP TABLE customer; 
-DROP TABLE supplier;  
+DROP TABLE asgn_product; 
+DROP TABLE asgn_employee; 
+DROP TABLE asgn_customer; 
+DROP TABLE asgn_supplier;  
 
 CREATE TABLE asgn_supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
@@ -18,7 +18,7 @@ CREATE TABLE asgn_supplier (
 CREATE TABLE asgn_product(
         product_name    varchar2(20)    NOT NULL,
         supplierID	INT             NOT NULL
-                CONSTRAINT supplierID_cnt REFERENCES supplier(supplierID),
+                CONSTRAINT supplierID_cnt REFERENCES asgn_supplier(supplierID),
         category        varchar2(20)    NOT NULL, 
         description 			varchar2(40)	NOT NULL, 
 		brand 					varchar2(20)	NOT NULL, 
