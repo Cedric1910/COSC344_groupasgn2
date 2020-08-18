@@ -4,16 +4,19 @@ DROP TABLE supplier;
 DROP TABLE employee; 
 DROP TABLE customer; 
 DROP TABLE sale; 
-DROP TABLE sale_item; 
+#DROP TABLE sale_item; 
 DROP TABLE invoice; 
 
+# SQL tables and constraints: 
 
-
+#With this I believe he doesnt want a product ID and become a weak entity??
 CREATE TABLE product (
 	productID 				INT 	 		NOT NULL PRIMARY KEY UNIQUE,
 	product_name  			varchar2(20)	NOT NULL, 
 	category				varchar2(20)	NOT NULL, 
-	supplierID				INT		 		NOT NULL, 
+	supplierID				INT		 		NOT NULL
+		CONSTRAINT supplierID_constant REFERENCES supplier(supplierID), 
+
 	description 			varchar2(40)	NOT NULL, 
 	quantity_in_stock		INT 			NOT NULL, 
 	retail_price 			INT 			NOT NULL, 
@@ -73,29 +76,45 @@ CREATE TABLE customer (
 
 CREATE TABLE sale (
 	saleID 					INT 			NOT NULL PRIMARY KEY UNIQUE, 
-	customerID 				INT 			NOT NULL, 
-	employeeID				INT 			NOT NULL, 
-	invoiceID				INT 			NOT NULL, 
+	customerID 				INT 			NOT NULL
+		CONSTRAINT customerID_constant REFERENCES customer(customerID), 
+
+	employeeID				INT 			NOT NULL	
+		CONSTRAINT employeeID_constant REFERENCES employee(employeeID), 
+
+	invoiceID				INT 			NOT NULL
+		CONSTRAINT invoiceID_constant REFERENCES invoice(invoiceID), 
+
 	#had to change name as date cant be a variable name
 	sale_date				DATE 			NOT NULL,  
 	totalPrice 				NUMBER(6,2) 	NOT NULL,#changed to number to work with decimals
-	discount 				NUMBER(2)		NOT NULL #might be (3)?? or an int?? unsure
+	discount 				NUMBER(2)		NOT NULL 
 ); 
 
+#Unsure if this is needed with revised diagram??? 
+/*
 CREATE TABLE sale_item (
 	productID 				INT 			NOT NULL, 
 	saleID					INT 			NOT NULL, 
 	quantity 				INT 			NOT NULL 
-);
+); 
+*/ 
 
 CREATE TABLE invoice (
 	invoiceID 				INT 			NOT NULL PRIMARY KEY UNIQUE,
-	customerID				INT 			NOT NULL, 
-	saleID					INT 			NOT NULL, 
+	customerID				INT 			NOT NULL
+		CONSTRAINT customerID_constant REFERENCES customer(customerID),
+
+	saleID					INT 			NOT NULL
+		CONSTRAINT saleID_constant REFERENCES sale(saleID), 
+
 	date_issued 			DATE 			NOT NULL, 
 	payment_by_date			DATE 			NOT NULL, 
 	paid 					BOOLEAN			NOT NULL
 ); 
+
+
+# Table Inserts and values: 
 
 
 
