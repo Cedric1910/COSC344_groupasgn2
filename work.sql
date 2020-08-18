@@ -70,9 +70,7 @@ CREATE TABLE asgn_invoice(
 	customerID				INT 			NOT NULL
 		CONSTRAINT customerID_constant REFERENCES asgn_customer(customerID),
 
-	saleID					INT 			NOT NULL
-		CONSTRAINT saleID_constant REFERENCES asgn_sale(saleID), 
-
+	saleID					INT 			NOT NULL, 
 	date_issued 			DATE 			NOT NULL, 
 	payment_by_date			DATE 			NOT NULL, 
 	paid 					BOOLEAN			NOT NULL
@@ -81,7 +79,7 @@ CREATE TABLE asgn_invoice(
 CREATE TABLE asgn_sale(
 	saleID 					INT 			NOT NULL PRIMARY KEY, 
 	customerID 				INT 			NOT NULL
-		CONSTRAINT customerID_constant REFERENCES asgn_customer(customerID), 
+		CONSTRAINT customerID_constant REFERENCES customer(customerID), 
 
 	employeeID				INT 			NOT NULL	
 		CONSTRAINT employeeID_constant REFERENCES asgn_employee(employeeID), 
