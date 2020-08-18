@@ -3,7 +3,7 @@ DROP TABLE customer;
 DROP TABLE employee;  
 DROP TABLE supplier;  
 
-CREATE TABLE supplier (
+CREATE TABLE asgn_supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
 	name 					varchar2(30)	NOT NULL,
 	phone 					varchar2(10)	NOT NULL, 
@@ -15,7 +15,7 @@ CREATE TABLE supplier (
 	preferred_payment		varchar2(15)	NOT NULL 
 ); 
 
-CREATE TABLE product(
+CREATE TABLE asgn_product(
         product_name    varchar2(20)    NOT NULL,
         supplierID	INT             NOT NULL
                 CONSTRAINT supplierID_cnt REFERENCES supplier(supplierID),
@@ -27,7 +27,7 @@ CREATE TABLE product(
 		wholesale_price 		INT 			NOT NULL 
 );
 
-CREATE TABLE employee(
+CREATE TABLE asgn_employee(
 	employeeID				INT 			NOT NULL PRIMARY KEY, 
 	first_name 				varchar2(15)	NOT NULL, 
 	middle_name 			varchar2(15), 
@@ -45,7 +45,7 @@ CREATE TABLE employee(
 	postcode				NUMBER(4)
 ); 
 
-CREATE TABLE customer(
+CREATE TABLE asgn_customer(
 	customerID				INT 			NOT NULL PRIMARY KEY, 
 	first_name 				varchar2(15)	NOT NULL, 
 	middle_name 			varchar2(15), 
