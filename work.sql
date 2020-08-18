@@ -2,6 +2,8 @@ DROP TABLE asgn_product;
 DROP TABLE asgn_employee;  
 DROP TABLE asgn_customer; 
 DROP TABLE asgn_supplier;  
+DROP TABLE asgn_invoice; 
+DROP TABLE asgn_sale; 
 
 CREATE TABLE asgn_supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
@@ -61,4 +63,33 @@ CREATE TABLE asgn_customer(
 	postcode				NUMBER(4), 
 	credit_limit 			NUMBER(6,2), 
 	customer_type 			varchar2(30)	NOT NULL
+); 
+
+CREATE TABLE asgn_invoice(
+	invoiceID 				INT 			NOT NULL PRIMARY KEY,
+	customerID				INT 			NOT NULL
+		CONSTRAINT customerID_constant REFERENCES customer(customerID),
+
+	saleID					INT 			NOT NULL
+		CONSTRAINT saleID_constant REFERENCES sale(saleID), 
+
+	date_issued 			DATE 			NOT NULL, 
+	payment_by_date			DATE 			NOT NULL, 
+	paid 					BOOLEAN			NOT NULL
+);
+
+CREATE TABLE asgn_sale(
+	saleID 					INT 			NOT NULL PRIMARY KEY, 
+	customerID 				INT 			NOT NULL
+		CONSTRAINT customerID_constant REFERENCES customer(customerID), 
+
+	employeeID				INT 			NOT NULL	
+		CONSTRAINT employeeID_constant REFERENCES employee(employeeID), 
+
+	invoiceID				INT 			NOT NULL
+		CONSTRAINT invoiceID_constant REFERENCES invoice(invoiceID), 
+
+	sale_date				DATE 			NOT NULL,  
+	totalPrice 				NUMBER(6,2) 	NOT NULL,
+	discount 				NUMBER(2)		NOT NULL 
 ); 
