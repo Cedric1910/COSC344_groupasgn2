@@ -1,7 +1,7 @@
 DROP TABLE product; 
-DROP TABLE supplier;  
 DROP TABLE employee; 
 DROP TABLE customer; 
+DROP TABLE supplier;  
 
 CREATE TABLE supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
