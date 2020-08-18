@@ -4,27 +4,23 @@ DROP TABLE supplier;
 DROP TABLE employee; 
 DROP TABLE customer; 
 DROP TABLE sale; 
-#DROP TABLE sale_item; 
 DROP TABLE invoice; 
 
-# SQL tables and constraints: 
-
-#With this I believe he doesnt want a product ID and become a weak entity??
 CREATE TABLE product (
-	productID 				INT 	 		NOT NULL PRIMARY KEY UNIQUE,
 	product_name  			varchar2(20)	NOT NULL, 
 	category				varchar2(20)	NOT NULL, 
 	supplierID				INT		 		NOT NULL
 		CONSTRAINT supplierID_constant REFERENCES supplier(supplierID), 
 
 	description 			varchar2(40)	NOT NULL, 
+	brand 					varchar2(20)	NOT NULL, 
 	quantity_in_stock		INT 			NOT NULL, 
 	retail_price 			INT 			NOT NULL, 
 	wholesale_price 		INT 			NOT NULL  
 ); 
 
 CREATE TABLE supplier (
-	supplierID 				INT 			NOT NULL PRIMARY KEY UNIQUE, 
+	supplierID 				INT 			NOT NULL PRIMARY KEY, 
 	name 					varchar2(30)	NOT NULL,
 	phone 					varchar2(10)	NOT NULL, 
 	street_number			INT(3)			NOT NULL, 
@@ -36,7 +32,7 @@ CREATE TABLE supplier (
 ); 
 
 CREATE TABLE employee (
-	employeeID				INT 			NOT NULL PRIMARY KEY UNIQUE, 
+	employeeID				INT 			NOT NULL PRIMARY KEY, 
 	first_name 				varchar2(15)	NOT NULL, 
 	middle_name 			varchar2(15), 
 	lastname				varchar2(15)	NOT NULL, 
@@ -56,11 +52,11 @@ CREATE TABLE employee (
 ); 
 
 CREATE TABLE customer (
-	customerID				INT 			NOT NULL PRIMARY KEY UNIQUE, 
+	customerID				INT 			NOT NULL PRIMARY KEY, 
 	first_name 				varchar2(15)	NOT NULL, 
 	middle_name 			varchar2(15), 
 	lastname				varchar2(15)	NOT NULL,
-	username				varchar2(20)	NOT NULL UNIQUE,
+	username				varchar2(20)	NOT NULL,
 	password				varchar2(30)	NOT NULL, 
 	company					varchar2(20), 
 	phone					varchar2(10)	NOT NULL,
@@ -75,7 +71,7 @@ CREATE TABLE customer (
 ); 
 
 CREATE TABLE sale (
-	saleID 					INT 			NOT NULL PRIMARY KEY UNIQUE, 
+	saleID 					INT 			NOT NULL PRIMARY KEY, 
 	customerID 				INT 			NOT NULL
 		CONSTRAINT customerID_constant REFERENCES customer(customerID), 
 
@@ -91,17 +87,9 @@ CREATE TABLE sale (
 	discount 				NUMBER(2)		NOT NULL 
 ); 
 
-#Unsure if this is needed with revised diagram??? 
-/*
-CREATE TABLE sale_item (
-	productID 				INT 			NOT NULL, 
-	saleID					INT 			NOT NULL, 
-	quantity 				INT 			NOT NULL 
-); 
-*/ 
 
 CREATE TABLE invoice (
-	invoiceID 				INT 			NOT NULL PRIMARY KEY UNIQUE,
+	invoiceID 				INT 			NOT NULL PRIMARY KEY,
 	customerID				INT 			NOT NULL
 		CONSTRAINT customerID_constant REFERENCES customer(customerID),
 
@@ -112,12 +100,4 @@ CREATE TABLE invoice (
 	payment_by_date			DATE 			NOT NULL, 
 	paid 					BOOLEAN			NOT NULL
 ); 
-
-
-# Table Inserts and values: 
-
-
-
-
-
 
