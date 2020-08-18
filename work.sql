@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-DROP TABLE product; 
-DROP TABLE customer; 
-DROP TABLE employee;  
-DROP TABLE supplier;  
-=======
 DROP TABLE asgn_product; 
 DROP TABLE asgn_employee;  
 DROP TABLE asgn_customer; 
 DROP TABLE asgn_supplier;  
->>>>>>> dd68d45e0f91bfce337746fdc51ecdfced3a5bfa
 
 CREATE TABLE asgn_supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
