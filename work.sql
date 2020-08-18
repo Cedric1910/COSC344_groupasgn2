@@ -38,11 +38,11 @@ CREATE TABLE employee(
 	branch					varchar2(20)	NOT NULL, 
 	Hire_Date				DATE, 
 	salary					NUMBER(6)		NOT NULL, 
-	street_number			INT(3)			NOT NULL, 
+	street_number			NUMBER(3)			NOT NULL, 
 	street_name 			varchar2(20)	NOT NULL, 
 	city					varchar2(20)	NOT NULL,
 	region					varchar2(15)	NOT NULL,
-	postcode				INT(4)
+	postcode				NUMBER(4)
 ); 
 
 CREATE TABLE customer(
@@ -54,11 +54,11 @@ CREATE TABLE customer(
 	password				varchar2(30)	NOT NULL, 
 	company					varchar2(20), 
 	phone					varchar2(10)	NOT NULL,
-	street_number			INT(3)			NOT NULL, 
+	street_number			NUMBER(3)			NOT NULL, 
 	street_name 			varchar2(20)	NOT NULL, 
 	city					varchar2(20)	NOT NULL,
 	region					varchar2(15)	NOT NULL,
-	postcode				INT(4), 
+	postcode				NUMBER(4), 
 	credit_limit 			NUMBER(6,2), 
 	customer_type 			varchar2(30)	NOT NULL
 ); 
