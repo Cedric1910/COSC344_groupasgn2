@@ -18,7 +18,7 @@ CREATE TABLE product (
 	retail_price 			INT 			NOT NULL, 
 	wholesale_price 		INT 			NOT NULL  
 ); 
-
+/*
 CREATE TABLE supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
 	name 					varchar2(30)	NOT NULL,
@@ -100,4 +100,4 @@ CREATE TABLE invoice (
 	payment_by_date			DATE 			NOT NULL, 
 	paid 					BOOLEAN			NOT NULL
 ); 
-
+*/ 
