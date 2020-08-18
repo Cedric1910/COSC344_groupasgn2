@@ -68,10 +68,10 @@ CREATE TABLE asgn_customer(
 CREATE TABLE asgn_invoice(
 	invoiceID 				INT 			NOT NULL PRIMARY KEY,
 	customerID				INT 			NOT NULL
-		CONSTRAINT customerID_constant REFERENCES customer(customerID),
+		CONSTRAINT customerID_constant REFERENCES asgn_customer(customerID),
 
 	saleID					INT 			NOT NULL
-		CONSTRAINT saleID_constant REFERENCES sale(saleID), 
+		CONSTRAINT saleID_constant REFERENCES asgn_sale(saleID), 
 
 	date_issued 			DATE 			NOT NULL, 
 	payment_by_date			DATE 			NOT NULL, 
@@ -81,13 +81,13 @@ CREATE TABLE asgn_invoice(
 CREATE TABLE asgn_sale(
 	saleID 					INT 			NOT NULL PRIMARY KEY, 
 	customerID 				INT 			NOT NULL
-		CONSTRAINT customerID_constant REFERENCES customer(customerID), 
+		CONSTRAINT customerID_constant REFERENCES asgn_customer(customerID), 
 
 	employeeID				INT 			NOT NULL	
-		CONSTRAINT employeeID_constant REFERENCES employee(employeeID), 
+		CONSTRAINT employeeID_constant REFERENCES asgn_employee(employeeID), 
 
 	invoiceID				INT 			NOT NULL
-		CONSTRAINT invoiceID_constant REFERENCES invoice(invoiceID), 
+		CONSTRAINT invoiceID_constant REFERENCES asgn_invoice(invoiceID), 
 
 	sale_date				DATE 			NOT NULL,  
 	totalPrice 				NUMBER(6,2) 	NOT NULL,
