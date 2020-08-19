@@ -24,10 +24,16 @@ INSERT INTO asgn_product VALUES('canned beans (extra hot)',005,'Canned food','ex
 
 INSERT INTO asgn_employee VALUES(1001,'Ashton','Herald','Ground','ashton@mail.com','021025662','Checkout','North Dunedin', TO_DATE('22/02/2019','DD-MM-YYYY') ,18.50,30,'Forth Street','Dunedin','Otago',9010);
 INSERT INTO asgn_employee VALUES(1002,'Ben','Roberts','Ground','ben@mail.com','021435772','Checkout','North Dunedin', TO_DATE('15/06/2018','DD-MM-YYYY') ,19,30,'Forth Street','Dunedin','Otago',9010);
+INSERT INTO asgn_employee VALUES(1003,'Ravi','','Dosanjh','ravi123@mail.com','0214354332','Manager','North Dunedin', TO_DATE('05/08/2012','DD-MM-YYYY') ,22.50,134,'Horn Street','Dunedin','Otago',9010);
+INSERT INTO asgn_employee VALUES(1004,'Hugo','','Smith','Hugo546@mail.com','0214354312','Checkout','North Dunedin', TO_DATE('12/12/2018','DD-MM-YYYY') ,19,30,'South','Dunedin','Otago',9010);
+INSERT INTO asgn_employee VALUES(1005,'Graham','','Sells','graham@yahoo.com','0214890372','Shelf Stacker','North Dunedin', TO_DATE('01/03/2017','DD-MM-YYYY') ,19.50,121,'Forth Clyde','Dunedin','Otago',9010);
 
 /* CUSTOMER INSERTS */
 
 INSERT INTO asgn_customer VALUES(2001, 'Emily','','Sung','emilySung','password','','026778432',17,'Clyde Street', 'Dunedin', 'Otago',9010,10000,'Regular Customer');
+INSERT INTO asgn_customer VALUES(2002, 'Hayley','','Thorns','ThornsH','Thorns123','','0213458254',34,'Northern Street', 'Dunedin', 'Otago',9010,10000,'Regular Customer');
+INSERT INTO asgn_customer VALUES(2003, 'Cedric','','Stephani','CStephani','cedricSteph','Central Cafe','021334556',121,'Park Street', 'Dunedin', 'Otago',9010,50000,'VIP Customer');
+INSERT INTO asgn_customer VALUES(2004, 'Emily','','brown','emilyB','emily554','Northern Foods','026778432',01,'Smiths Street', 'Dunedin', 'Otago',9010,10000,'Regular Customer');
 
 
 /* INVOICE INSERTS */
