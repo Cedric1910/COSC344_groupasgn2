@@ -1,10 +1,11 @@
 DROP TABLE asgn_product;
+DROP TABLE asgn_contains; 
 DROP TABLE asgn_sale; 
 DROP TABLE asgn_employee;
 DROP TABLE asgn_invoice; 
 DROP TABLE asgn_customer; 
 DROP TABLE asgn_supplier;  
-DROP TABLE asgn_contains; 
+
 
 CREATE TABLE asgn_supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
