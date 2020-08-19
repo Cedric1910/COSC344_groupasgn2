@@ -27,7 +27,7 @@ INSERT INTO asgn_employee VALUES(1002,'Ben','Roberts','Ground','ben@mail.com','0
 
 /* CUSTOMER INSERTS */
 
-INSERT INTO asgn_customer VALUES(2001), 'Emily','','Sung','emilySung','password','','026778432',17,'Clyde Street', 'Dunedin', 'Otago',9010,10000,'Regular Customer');
+INSERT INTO asgn_customer VALUES(2001, 'Emily','','Sung','emilySung','password','','026778432',17,'Clyde Street', 'Dunedin', 'Otago',9010,10000,'Regular Customer');
 
 
 /* INVOICE INSERTS */
