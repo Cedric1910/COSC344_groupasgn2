@@ -63,7 +63,7 @@ CREATE TABLE asgn_customer(
 	city					varchar2(20)	NOT NULL,
 	region					varchar2(15)	NOT NULL,
 	postcode				NUMBER(4), 
-	credit_limit 			NUMBER(6,2), 
+	credit_limit 			NUMBER(9,2), 
 	customer_type 			varchar2(30)	NOT NULL
 ); 
 
