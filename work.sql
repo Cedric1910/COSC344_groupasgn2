@@ -1,8 +1,8 @@
 DROP TABLE asgn_product; 
-DROP TABLE asgn_employee;  
+DROP TABLE asgn_employee;
+DROP TABLE asgn_invoice; 
 DROP TABLE asgn_customer; 
 DROP TABLE asgn_supplier;  
-DROP TABLE asgn_invoice; 
 DROP TABLE asgn_sale; 
 
 CREATE TABLE asgn_supplier (
@@ -23,10 +23,10 @@ CREATE TABLE asgn_product(
                 CONSTRAINT supplierID_cnt REFERENCES asgn_supplier(supplierID),
         category        varchar2(20)    NOT NULL, 
         description 			varchar2(40)	NOT NULL, 
-		brand 					varchar2(20)	NOT NULL, 
-		quantity_in_stock		INT 			NOT NULL, 
-		retail_price 			INT 			NOT NULL, 
-		wholesale_price 		INT 			NOT NULL 
+	brand 					varchar2(20)	NOT NULL, 
+	quantity_in_stock		INT 			NOT NULL, 
+	retail_price 			INT 			NOT NULL, 
+	wholesale_price 		INT 			NOT NULL 
 );
 
 CREATE TABLE asgn_employee(
@@ -66,28 +66,24 @@ CREATE TABLE asgn_customer(
 ); 
 
 CREATE TABLE asgn_invoice(
-	invoiceID 				INT 			NOT NULL PRIMARY KEY,
-	customerID				INT 			NOT NULL
-		CONSTRAINT customerID_constant REFERENCES asgn_customer(customerID),
-
-	saleID					INT 			NOT NULL, 
-	date_issued 			DATE 			NOT NULL, 
-	payment_by_date			DATE 			NOT NULL, 
-	paid 					BOOLEAN			NOT NULL
-);
+       invoiceID                        INT                     NOT NULL PRIMARY KEY,
+       customerID                       INT                     NOT NULL
+               CONSTRAINT supplier_cnst REFERENCES asgn_customer(customerID),
+               saleID				INT 			NOT NULL,
+               date_issued                       DATE                    NOT NULL,
+               payment_by_date			DATE 			NOT NULL, 
+               paid                              VARCHAR(1)              NOT NULL
+); 
 
 CREATE TABLE asgn_sale(
-	saleID 					INT 			NOT NULL PRIMARY KEY, 
-	customerID 				INT 			NOT NULL
-		CONSTRAINT customerID_constant REFERENCES customer(customerID), 
-
-	employeeID				INT 			NOT NULL	
-		CONSTRAINT employeeID_constant REFERENCES asgn_employee(employeeID), 
-
-	invoiceID				INT 			NOT NULL
-		CONSTRAINT invoiceID_constant REFERENCES asgn_invoice(invoiceID), 
-
-	sale_date				DATE 			NOT NULL,  
-	totalPrice 				NUMBER(6,2) 	NOT NULL,
-	discount 				NUMBER(2)		NOT NULL 
+       saleID                                  INT                      NOT NULL PRIMARY KEY,
+       customerID 				INT 			NOT NULL
+               CONSTRAINT customerID_constant REFERENCES asgn_customer(customerID), 
+       employeeID				INT 			NOT NULL	
+               CONSTRAINT employeeID_constant REFERENCES asgn_employee(employeeID), 
+       invoiceID				INT 			NOT NULL
+              CONSTRAINT invoiceID_constant REFERENCES asgn_invoice(invoiceID),
+       sale_date				DATE 			NOT NULL,  
+       totalPrice 				NUMBER(6,2) 	        NOT NULL,
+       discount 				NUMBER(2)		NOT NULL
 ); 
