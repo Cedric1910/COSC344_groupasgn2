@@ -1,0 +1,15 @@
+
+/* SUPPLIER INSERTS */ 
+
+INSERT INTO asgn_supplier VALUES(001,'Northern Suppliers','021001043',12,'Northern Street','Dunedin','Otago',9010,'Bank Transfer'); 
+INSERT INTO asgn_supplier VALUES(002,'Eastern Suppliers','021026444',37,'Eastern Street','Dunedin','Otago',9010,'Bank Transfer'); 
+INSERT INTO asgn_supplier VALUES(003,'Southern Suppliers','021045678',153,'Southern Street','Dunedin', 'Otago',9010,'Direct deposit'); 
+INSERT INTO asgn_supplier VALUES(004,'Western Suppliers','021078932',101,'Western Street','Christchurch','Canterbury',9301,'Cheque'); 
+INSERT INTO asgn_supplier VALUES(005,'Central Suppliers','0210223463',08,'Woodland Street','Wellingon','Wellington',9104,'Bank Transfer');
+
+
+/* SUPPLIER PRODUCTS */
+
+INSERT INTO asgn_product VALUES('red apple',001,'Fruit','a tasty red apple','Fruits ltd.',101,2,2.50); 
+INSERT INTO asgn_product VALUES('green apple',001,'Fruit','a tasty green apple','Fruits ltd.',150,2,2.50);
+INSERT INTO asgn_product VALUES('orange',002,'Fruit','a tasty orange   ','Fruits ltd.',101,2,2.50);
