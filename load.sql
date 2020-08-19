@@ -161,3 +161,5 @@ INSERT INTO asgn_contains VALUES('canned beans (mild)',403,25); #SALE 3
 INSERT INTO asgn_contains VALUES('canned beans (medium)',403,25); #SALE 3
 INSERT INTO asgn_contains VALUES('canned beans (hot)',403,25); #SALE 3
 INSERT INTO asgn_contains VALUES('canned beans (extra hot)',403,25); #SALE 3
+
+
