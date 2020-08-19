@@ -1,9 +1,10 @@
-DROP TABLE asgn_product; 
+DROP TABLE asgn_product;
+DROP TABLE asgn_sale; 
 DROP TABLE asgn_employee;
 DROP TABLE asgn_invoice; 
 DROP TABLE asgn_customer; 
 DROP TABLE asgn_supplier;  
-DROP TABLE asgn_sale; 
+DROP TABLE asgn_contains; 
 
 CREATE TABLE asgn_supplier (
 	supplierID 				INT 			NOT NULL PRIMARY KEY, 
@@ -86,4 +87,12 @@ CREATE TABLE asgn_sale(
        sale_date				DATE 			NOT NULL,  
        totalPrice 				NUMBER(6,2) 	        NOT NULL,
        discount 				NUMBER(2)		NOT NULL
+);
+
+
+CREATE TABLE asgn_contains(
+       product_name             varchar(20)             NOT NULL,
+       saleID                   INT                     NOT NULL
+                  CONSTRAINT sale_cnst    REFERENCES asgn_sale(saleID),
+       quantity                  INT                     NOT NULL
 ); 
