@@ -94,4 +94,3 @@ CREATE TABLE sale(
 	totalPrice 				NUMBER(6,2) 	NOT NULL,
 	discount 				NUMBER(2)		NOT NULL 
 ); 
-
