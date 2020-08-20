@@ -71,7 +71,6 @@ CREATE TABLE asgn_invoice(
        invoiceID                        INT                     NOT NULL PRIMARY KEY,
        customerID                       INT                     NOT NULL
                CONSTRAINT supplier_cnst REFERENCES asgn_customer(customerID),
-       saleID									 INT 			NOT NULL,
                date_issued                       DATE                    NOT NULL,
                payment_by_date			DATE 			NOT NULL, 
                paid                              VARCHAR(1)              NOT NULL
@@ -139,9 +138,9 @@ INSERT INTO asgn_customer VALUES(2004, 'Emily','','brown','emilyB','emily554','N
 
 /* INVOICE INSERTS */
 
-INSERT INTO asgn_invoice VALUES(301,2001,401,TO_DATE('20/06/2020','DD-MM-YYYY'),TO_DATE('20/07/2020','DD-MM-YYYY'),'N');
-INSERT INTO asgn_invoice VALUES(302,2002,402,TO_DATE('15/06/2020','DD-MM-YYYY'),TO_DATE('15/07/2020','DD-MM-YYYY'),'Y');
-INSERT INTO asgn_invoice VALUES(303,2003,403,TO_DATE('27/06/2020','DD-MM-YYYY'),TO_DATE('27/07/2020','DD-MM-YYYY'),'N');
+INSERT INTO asgn_invoice VALUES(301,2001,TO_DATE('20/06/2020','DD-MM-YYYY'),TO_DATE('20/07/2020','DD-MM-YYYY'),'N');
+INSERT INTO asgn_invoice VALUES(302,2002,TO_DATE('15/06/2020','DD-MM-YYYY'),TO_DATE('15/07/2020','DD-MM-YYYY'),'Y');
+INSERT INTO asgn_invoice VALUES(303,2003,TO_DATE('27/06/2020','DD-MM-YYYY'),TO_DATE('27/07/2020','DD-MM-YYYY'),'N');
 
 
 /* SALE INSERTS */
