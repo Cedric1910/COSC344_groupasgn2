@@ -92,8 +92,8 @@ CREATE TABLE asgn_sale(
 
 
 CREATE TABLE asgn_contains(
-       product_name             varchar(20)             NOT NULL,
-       saleID                   INT                     NOT NULL
+       product_name             varchar(40)             NOT NULL,
+       saleID                   INT                     NOT NULL 
                   CONSTRAINT sale_cnst    REFERENCES asgn_sale(saleID),
        quantity                  INT                     NOT NULL
 ); 
@@ -111,7 +111,7 @@ INSERT INTO asgn_supplier VALUES(005,'Central Suppliers','0210223463',08,'Woodla
 
 /* SUPPLIER PRODUCTS */
 
-INSERT INTO asgn_product VALUES('red apple',001,'Fruit','a tasty red apple','Fruits ltd.',101,2,1.50,2); 
+INSERT INTO asgn_product VALUES('red apple',001,'Fruit','a tasty red apple','Fruits ltd.',101  ,1.50,2); 
 INSERT INTO asgn_product VALUES('green apple',001,'Fruit','a tasty green apple','Fruits ltd.',150,1.50,2);
 INSERT INTO asgn_product VALUES('orange',002,'Fruit','a tasty orange','Fruits ltd.',90,1.50,2);
 INSERT INTO asgn_product VALUES('parnsip',003,'Vegetable','in season parnsip','Vegtables ltd.',200,3,3.50);
@@ -154,12 +154,12 @@ INSERT INTO asgn_sale VALUES(403, 2003, 1002,303,TO_DATE('27/06/2020','DD-MM-YYY
 
 /* CONTAINS INSERTS */ 
 
-INSERT INTO asgn_contains VALUES('red apple',401,50); #SALE 1
-INSERT INTO asgn_contains VALUES('green apple',401,50); #SALE 1
-INSERT INTO asgn_contains VALUES('orange',402,100); #SALE 2
-INSERT INTO asgn_contains VALUES('canned beans (mild)',403,25); #SALE 3
-INSERT INTO asgn_contains VALUES('canned beans (medium)',403,25); #SALE 3
-INSERT INTO asgn_contains VALUES('canned beans (hot)',403,25); #SALE 3
-INSERT INTO asgn_contains VALUES('canned beans (extra hot)',403,25); #SALE 3
+INSERT INTO asgn_contains VALUES('red apple',401,50); 
+INSERT INTO asgn_contains VALUES('green apple',401,50); 
+INSERT INTO asgn_contains VALUES('orange',402,100); 
+INSERT INTO asgn_contains VALUES('canned beans (mild)',403,25); 
+INSERT INTO asgn_contains VALUES('canned beans (medium)',403,25); 
+INSERT INTO asgn_contains VALUES('canned beans (hot)',403,25); 
+INSERT INTO asgn_contains VALUES('canned beans (extra hot)',403,25); 
 
 
